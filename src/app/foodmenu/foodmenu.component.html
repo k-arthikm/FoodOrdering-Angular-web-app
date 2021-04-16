@@ -1,0 +1,62 @@
+<!--breadcrumbs start-->
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12" style=background-color:lightgreen>
+                <h5 class="breadcrumbs-title">Food Menu</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs end-->
+
+
+
+<!--start container-->
+<div class="container">
+    <p class="caption">Add, Edit or Remove Menu Items.</p>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="col s12 m4 l3">
+            <h4 class="header">Order Food</h4>
+        </div>
+        <div>
+            
+            <app-itemslist [itemList_var]="itemList"></app-itemslist> 
+
+            
+
+            <!-- <app-additems></app-additems> -->
+        <app-additem-outputdemo (addItem)=addItem1($event)></app-additem-outputdemo>
+
+
+
+            <!-- <form name="userForm">
+                <table>
+                <tr *ngFor="let item of itemList; let in =index">
+                  <td><select><option >{{item.FirstName}}</option></select></td>
+                  <td><input type="text" id="lastname" name="lastname" [(ngModel)]="itemList[in].lastname"></td>
+                  <td><input type="text" id="middlename" name="middlename" [(ngModel)]="itemList[in].middlename"></td>
+                </tr>
+                </table>
+                </form> -->
+
+                 <!-- <td>
+                    <div class="input-field col s12">
+                    
+                        <label for="1_name">Name</label>
+                        <input value={{item.name}} id="1_name" name="1_name" type="text"
+                            data-error=".errorTxt1">
+                        <div class="errorTxt1"></div> 
+                    </div>
+                </td> 
+                <td>
+                    <div class="input-field col s12 ">
+                        <label for="1_price">Price</label>
+                        <input value={{item.price}} id="1_price" name="1_price" type="text"
+                            data-error=".errorTxt1">
+                        <div class="errorTxt1"></div> 
+                    </div>
+                </td> -->
+
+               

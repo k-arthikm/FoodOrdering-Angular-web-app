@@ -1,0 +1,143 @@
+<p>users works!</p>
+<!-- <section id="content"> -->
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <h5 class="breadcrumbs-title">User List</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container">
+    <p class="caption">Enable, Disable or Verify Users.</p>
+    <div class="divider"></div>
+    <!--editableTable-->
+    <div id="editableTable" class="section">
+        <form class="formValidate" id="formValidate1">
+            <div class="row">
+                <div class="col s12 m4 l3">
+                    <h4 class="header">List of users</h4>
+                </div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 100px" data-field="name">Name</th>
+                                <th data-field="price">Email</th>
+                                <th data-field="price">Contact</th>
+                                <th data-field="price">Address</th>
+                                <th data-field="price">Role</th>
+                                <th data-field="price">Verified</th>
+                                <th data-field="price">Enable</th>
+                                <th data-field="price">Wallet</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let item of usersList;">
+                                <td>{{item.name}}
+                                </td>
+                                <td></td>
+                                <td>{{item.contact}}</td>
+                                <td>{{item.address}}</td>
+                                <td><select name="1_role" [(ngModel)]="item.role">
+                                        <option value="Administrator" selected>Administrator</option>
+                                        <option value="Customer">Customer</option>
+                                    </select></td>
+                                <td><select name="1_verified" [(ngModel)]="item.verified">
+                                        <option value="1" selected>Verified</option>
+                                        <option value="0">Not Verified</option>
+                                    </select></td>
+                                <td><select name="1_deleted" [(ngModel)]="item.deleted">
+                                        <option value="1">Disable</option>
+                                        <option value="0" selected>Enable</option>
+                                    </select></td>
+                                <td><label for="balance">Balance</label><input [(ngModel)]="item.balance" name="1_balance"
+                                        value="3430" type="number" data-error=".errorTxt01">
+                                    <div class="errorTxt01"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="input-field col s12">
+                    <button class="btn cyan waves-effect waves-light right" (click)="modifyUser()">Modify
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
+            </div>
+
+
+
+        <form class="formValidate" id="formValidate">
+            <div class="row">
+                <div class="col s12 m4 l3">
+                    <h4 class="header">Add User</h4>
+                </div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-field="name">Username</th>
+                                <th data-field="name">Password</th>
+                                <th data-field="name">Name</th>
+                                <th data-field="price">Email</th>
+                                <th data-field="price">Phone number</th>
+                                <th data-field="price">Address</th>
+                                <th data-field="price">Role</th>
+                                <th data-field="price">Verified</th>
+                                <th data-field="price">Enable</th>
+                            </tr>
+                        </thead>
+        
+                        <tbody>
+                            <tr>
+                                <td><label for="username">Username</label><input [(ngModel)]="user.username" name="username" type="text"
+                                        data-error=".errorTxt02">
+                                    <div class="errorTxt02"></div>
+                                </td>
+                                <td><label for="password">Password</label><input [(ngModel)]="user.password" name="password" type="password"
+                                        data-error=".errorTxt03">
+                                    <div class="errorTxt03"></div>
+                                </td>
+                                <td><label for="name">Name</label><input [(ngModel)]="user.name" name="name" type="text"
+                                        data-error=".errorTxt04">
+                                    <div class="errorTxt04"></div>
+                                </td>
+                                <td><label for="email">Email</label><input [(ngModel)]="user.email" name="email" type="email"></td>
+                                <td><label for="contact">Phone number</label><input [(ngModel)]="user.contact" name="contact" type="number"
+                                        data-error=".errorTxt05">
+                                    <div class="errorTxt05"></div>
+                                </td>
+                                <td><label for="address">Address</label><input [(ngModel)]="user.address" name="address" type="text"
+                                        data-error=".errorTxt06">
+                                    <div class="errorTxt06"></div>
+                                </td>
+                                <td><select name="role" [(ngModel)]="user.role">
+                                        <option value="Administrator">Administrator</option>
+                                        <option value="Customer">Customer</option>
+                                    </select></td>
+                                <td><select name="verified" [(ngModel)]="user.verified">
+                                        <option value="1">Verified</option>
+                                        <option value="0">Not Verified</option>
+                                    </select></td>
+                                <td><select name="deleted" [(ngModel)]="user.deleted">
+                                        <option value="1">Disable</option>
+                                        <option value="0">Enable</option>
+                                    </select></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="input-field col s12">
+                    <button class="btn cyan waves-effect waves-light right" (click)="addUser(user)" name="action">Add
+                        <i class="mdi-content-send right"></i>
+                        <!-- <input type= "button" class="btn cyan waves-effect waves-light right" (click)="addItem(name,price)" value="Add"> -->
+                    </button>
+                </div>
+            </div>
+        </form>
+
+            
+        <!-- </section> -->

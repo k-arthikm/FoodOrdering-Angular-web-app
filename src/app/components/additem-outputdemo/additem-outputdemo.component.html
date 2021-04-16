@@ -1,0 +1,47 @@
+<p>additem-outputdemo works!</p>
+<form class="formValidate" id="formValidate1" method="post" action="routers/add-item.php" novalidate="novalidate">
+    <div class="row">
+        <div class="col s12 m4 l3">
+            <h4 class="header">Add Item</h4>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-field="id">Name</th>
+                        <th data-field="name">Item Price/Piece</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="input-field col s12">
+                                <label for="name">Name</label>
+                                <input [(ngModel)]="name" type="text" name=name1 item data-error=".errorTxt01">
+                                <div class="errorTxt01"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="input-field col s12 ">
+                                <label for="price" class="">Price</label>
+                                <input [(ngModel)]="price" type="text" name=price1 data-error=".errorTxt02">
+                                <div class="errorTxt02"></div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="input-field col s12">
+            <!-- <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Add
+                            <i class="mdi-content-send right"></i>
+                        </button> -->
+            <input type="button" class="btn cyan waves-effect waves-light right" (click)="addItemFromComp(name,price)"
+                value="Add">
+
+
+        </div>
+    </div>
+</form>

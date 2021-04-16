@@ -1,0 +1,58 @@
+<form name="userForm">
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Item Price/Piece</th>
+                    <th>Available</th>
+                </tr>
+            </thead>
+            <!-- {id: "4", name: "Item 4", price: "15", deleted: "1"} -->
+             <!-- <form name="userForm">
+    <table>
+    <tr *ngFor="let item of itemList; let in =index">
+      <td><select><option >{{item.FirstName}}</option></select></td>
+      <td><input type="text" id="lastname" name="lastname" [(ngModel)]="itemList[in].lastname"></td>
+      <td><input type="text" id="middlename" name="middlename" [(ngModel)]="itemList[in].middlename"></td>
+    </tr>
+    </table>
+    </form> -->
+            <tbody>
+                <tr *ngFor="let item of itemList_var; let in =index;">
+                    
+                    <td>
+                        <div >
+                        
+                            <label for="1_name">Name</label>
+                            <!-- <input value={{item.name}} id="1_name" name="1_name" type="text"> -->
+                            <input [(ngModel)]="item.name" name="name_{{in}}" type="text">
+                            
+                        </div>
+                    </td>
+                    <td>
+                        <div >
+                            <label for="1_price">Price</label>
+                            <!-- <input value={{item.price}} id="1_price" name="1_price" type="text"> -->
+                            <input [(ngModel)]="item.price" name="price_{{in}}" type="text">
+                            
+                        </div>
+                    </td>
+                    <td><select name="hide_{{in}}" [(ngModel)]="item.deleted">
+                            <option value="0">Available</option>
+                            <option value="1">Not Available</option>
+                        </select>
+                    </td>
+
+                </tr>
+        </table>
+    </div>
+    <div class="input-field col s12">
+        <button class="btn cyan waves-effect waves-light right" (click)="modifyItem()">Modify
+            <i class="mdi-content-send right"></i>
+        </button>
+    </div>
+
+</form>
+
+

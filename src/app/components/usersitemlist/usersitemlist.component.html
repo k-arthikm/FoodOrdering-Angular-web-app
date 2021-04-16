@@ -1,0 +1,80 @@
+<p>usersitemlist works!</p>
+
+<form class="formValidate" id="formValidate1" method="post" action="routers/add-item.php"
+novalidate="novalidate">
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Item Price/Piece</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <!-- {id: "4", name: "Item 4", price: "15", deleted: "1"} -->
+         <!-- <form name="userForm">
+<table>
+<tr *ngFor="let item of itemList; let in =index">
+  <td><select><option >{{item.FirstName}}</option></select></td>
+  <td><input type="text" id="lastname" name="lastname" [(ngModel)]="itemList[in].lastname"></td>
+  <td><input type="text" id="middlename" name="middlename" [(ngModel)]="itemList[in].middlename"></td>
+</tr>
+</table>
+</form> -->
+        <tbody>
+            <tr *ngFor="let item of itemList_var; let in =index;">
+                
+                <td>
+                    <div >
+                    
+                        <label for="1_name">Name</label><br>
+                        <!-- <input value={{item.name}} id="1_name" name="1_name" type="text"> -->
+                        <!-- <input [(ngModel)]="item.name" name="name_{{in}}" type="text"> -->
+                        {{item.name}}
+                        
+                    </div>
+                </td>
+                <td>
+                    <div >
+                        <label for="1_price">Price</label><br>
+                        <!-- <input value={{item.price}} id="1_price" name="1_price" type="text"> -->
+                        <!-- <input [(ngModel)]="item.price" name="price_{{in}}" type="text"> -->
+                        {{item.price}}
+                        
+                    </div>
+                </td>
+                <td>
+                    <!-- <div class="input-field col s12"> -->
+
+                        <label for=3 class="">Quantity</label><br>
+                        <input [(ngModel)]="item.quantity" name="quantity" data-error=".errorTxt3">
+                            <div class="errorTxt3"></div>
+                    <!-- </div>         -->
+                        </td>
+
+            </tr>
+    </table>
+</div>
+
+
+<div class="row">
+    
+    <div class="input-field col s12">
+        <i class="mdi-editor-mode-edit prefix"></i>
+        <textarea id="description" name="description" class="materialize-textarea"></textarea>
+        <label for="description" class="">Any note(optional)</label>
+        </div>
+        <div>
+        <div class="input-field col s12">
+            <a>
+                <button class="btn cyan waves-effect waves-light right" (click)="orderItems()">Order
+                          <i class="mdi-content-send right"></i>
+                        </button>
+                    </a>
+                      </div>
+      </div>
+        
+    </div>
+<!-- </div> -->
+</form>
+<button class="btn cyan waves-effect waves-light right" (click)="name()">@OutputDemo</button>

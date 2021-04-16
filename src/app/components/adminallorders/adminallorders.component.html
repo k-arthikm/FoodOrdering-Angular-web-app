@@ -1,0 +1,67 @@
+<p>adminallorders works!</p>
+
+<div class="row">
+    <div>
+      <h4 class="header">List</h4>
+      <ul id="issues-collection" class="collection">
+        <li class="collection-item avatar" *ngFor="let item of orders_var">
+          <i class="mdi-content-content-paste red circle"></i>
+          <!-- <i class="mdi-content-content-paste red circle"></i> -->
+          <span class="collection-header">Order No: {{item.id}}</span>
+          <p><strong>Date:</strong> {{item.date}}</p>
+          <p><strong>Payment Type:</strong> {{item.payment_type}}</p>
+          <p><strong>Status:</strong>{{item.status}} </p>
+          <!-- <form method="post" action="routers/edit-orders.php"> -->
+          <input type="hidden" value="1" name="id">
+          <select *ngIf="item.status != 'Cancelled by Customer'" name="status" [(ngModel)]="item.status">
+            <option value="Yet to be delivered">Yet to be delivered</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled by Admin">Cancelled by Admin</option>
+            <option value="Paused">Paused</option>
+          </select>
+          <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>
+          <!-- </form> -->
+          <div class="collection-item">
+            <div class="row">
+
+              <p><strong>Name: </strong>{{item.userDetails[0].name}}</p>
+              <p><strong>Address: </strong>Address 2</p>
+              <p><strong>Contact: </strong>9898000001</p>
+              <p><strong>Email: </strong>mail2@example.com</p>
+              <p><strong>Note: </strong>Sample Description 1</p>
+            </div>
+          </div>
+
+          <div class="collection-item" *ngFor="let item2 of item.itemDetails">
+            <div class="row">
+              <div class="col s7">
+                <p class="collections-title"><strong>#{{item2.id}}</strong> Item {{item2.order_id}}</p>
+              </div>
+              <div class="col s2">
+                <span>{{item2.quantity}} Pieces</span>
+              </div>
+              <div class="col s3">
+                <span>Rs. {{item2.price}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s7">
+              <p class="collections-title"> Total</p>
+            </div>
+            <div class="col s2">
+              <span>&nbsp;</span>
+            </div>
+            <div class="col s3">
+              <span><strong>Rs. {{calculateTotal(item)}}</strong></span>
+            </div>
+          </div>
+
+          <button *ngIf="item.status!='Cancelled by Customer'" class="btn waves-effect waves-light right submit"
+            (click)="changeStatus(item)">Change Status
+            <i class="mdi-content-clear right"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>

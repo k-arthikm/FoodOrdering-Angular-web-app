@@ -1,0 +1,67 @@
+<p>login works!</p>
+<!-- <h1>hello</h1>
+<div id="loader-wrapper">
+  <div id="loader"></div>        
+  <div class="loader-section section-left"></div>
+  <div class="loader-section section-right"></div>
+</div> -->
+<div id="login-page" class="row">
+  <div class="col s12 z-depth-4 card-panel">
+    <form method="post" action="routers/router.php" class="login-form" id="form">
+      <div class="row">
+        <div class="input-field col s12 center">
+          <p class="center login-form-text">Login for Food Ordering System</p>
+        </div>
+      </div>
+      <form #form1="ngForm">
+      <div class="row margin">
+        <div class="input-field col s12">
+          <i class="mdi-social-person-outline prefix"></i>
+          <input name="un" #un="ngModel" id="username" required [(ngModel)]="username" type="text" minlength="4" maxlength="5" pattern="[A-Za-z0-9]*">
+          <!-- {{un.errors | json}} -->
+          <div *ngIf="(un.invalid && un.dirty) || submitted">
+            
+            <span class="c1" *ngIf="un.errors?.required">
+              User Name is required</span>
+              <span class="c1" *ngIf="un.errors?.minlength">
+                User Name should be atleast 4 characters</span>
+                <span class="c1" *ngIf="un.errors?.maxlength">
+                  User Name should be atleast 4 characters max</span>
+                  <span class="c1" *ngIf="un.errors?.pattern">
+                    Only characters please!</span>
+          </div>
+          <br><br>
+          <label for="username" class="center-align">Username</label>
+        </div>
+
+      </div>
+      <div class="row margin">
+        <div class="input-field col s12">
+          <i class="mdi-action-lock-outline prefix"></i>
+          <input name="pwd" #pwd="ngModel" id="password" required [(ngModel)]="password" type="password">
+          <div *ngIf="(pwd.invalid && pwd.dirty) || submitted">
+            <span class="c1" *ngIf="pwd.errors?.required">
+              Password is required </span>
+          </div>
+          
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <a href="javascript:void(0);" onclick="document.getElementById('form').submit();" class="btn waves-effect waves-light col s12">Login</a> -->
+ 
+    <input type="button" value="Login" class="btn waves-effect waves-light col s12" (click)="login(form1)" />
+<br><br>
+    <input type="button" value="Pay" class="btn waves-effect waves-light col s12" (click)="pay()" />
+
+      </div>
+    </form>
+      <div class="row">
+        <div class="input-field col s6 m6 l6">
+          <p class="margin medium-small"><a [routerLink]="['/register']">Register Now!</a></p>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

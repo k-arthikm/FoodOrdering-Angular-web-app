@@ -1,0 +1,134 @@
+<section id="content">
+
+    <!--breadcrumbs start-->
+    <div id="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <h5 class="breadcrumbs-title">Provide Order Details</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs end-->
+
+
+    <!--start container-->
+    <div class="container">
+        <p class="caption">Provide required delivery and payment details.</p>
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s12 m4 l3">
+                <h4 class="header">Details</h4>
+            </div>
+            <div>
+                <div class="card-panel">
+                    <div class="row">
+                        <form name="form1" class="formValidate col s12 m12 l6">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="payment_type">Payment Type</label><br><br>
+                                    <!-- <select id="payment_type" name="payment_type"> -->
+                                        <!-- <select (ngModelChange)="getOption($event)" [(ngModel)]="selectedOption" name="selectedOption_1"> -->
+                                            <select [(ngModel)]="selectedOption" name="selectedOption_1">
+                                        <option value="Wallet">Wallet</option>
+                                        <option value="Cash On Delivery">Cash on Delivery</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="mdi-action-home prefix"></i>
+                                    <textarea name="address" id="address" class="materialize-textarea validate"
+                                        data-error=".errorTxt1">{{user[0].address}}</textarea>
+                                    <label for="address" class="">Address</label>
+                                    <div class="errorTxt1"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="mdi-action-credit-card prefix"></i>
+                                    <input name="cc_number" id="cc_number" type="text" data-error=".errorTxt2" required>
+                                    <label for="cc_number" class="">Card Number</label>
+                                    <div class="errorTxt2"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="mdi-communication-vpn-key prefix"></i>
+                                    <input name="cvv_number" id="cvv_number" type="text" data-error=".errorTxt3"
+                                        required>
+                                    <label for="cvv_number" class="">CVV Number</label>
+                                    <div class="errorTxt3"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn cyan waves-effect waves-light right" (click)="getPaymentType()">Submit
+                                            <i class="mdi-content-send right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <!-- </div> -->
+            <div class="divider"></div>
+
+        <!-- </div> -->
+        <!--end container-->
+
+    </div>
+
+    <div class="container">
+        <p class="caption">Estimated Receipt</p>
+        <div class="divider"></div>
+        <!--editableTable-->
+        <div id="work-collections" class="seaction">
+            <div class="row" >
+                <div>
+                    <ul id="issues-collection" class="collection">
+                        <li class="collection-item avatar">
+                            <i class="mdi-content-content-paste red circle"></i>
+                            <p><strong>Name:</strong>{{user[0].name}}</p>
+                            <p><strong>Contact Number:</strong>{{user[0].contact}}</p>
+                            <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>
+                            <div class="row" *ngFor="let it of item; let in =index;">
+                                <div class="col s7">
+                                    <p class="collections-title"><strong>#{{in+1}} </strong>{{it.name}}</p>
+                                </div>
+                                <div class="col s2">
+                                    <span>{{it.quantity}} pieces</span>
+                                </div>
+                                <div class="col s3">
+                                    <span>Rs. {{it.price*it.quantity}}</span>
+                                </div>
+                            </div>
+                            </li>
+                        <li class="collection-item">
+                            <div class="row">
+                                <div class="col s7">
+                                    <p class="collections-title"> Total</p>
+                                </div>
+                                <div class="col s2">
+                                    <span>&nbsp;</span>
+                                </div>
+                                <div class="col s3">
+                                    <span><strong>Rs. {{total}}</strong></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!--end container-->
+
+</section>

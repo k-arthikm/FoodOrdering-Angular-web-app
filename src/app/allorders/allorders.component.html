@@ -1,0 +1,45 @@
+<!-- <div *ngFor="let item of orders">
+     <p>Order ID: {{item.id}}</p>
+     <p>{{item.customer_id}}</p>
+     <p>{{item.address}}</p> 
+     <p>{{item.description}}</p>
+     <p>{{item.date}}</p>
+     <p>{{item.payment_type}}</p>
+     <p>{{item.total}}</p>
+     <p>{{item.status}}</p>  
+     <p>{{item.deleted}}</p>
+   </div> -->
+
+<!-- [{"id":"1","customer_id":"2","address":"Address 2","description":"Sample Description 1","date":"2017-03-28 17:32:41","payment_type":"Wallet","total":"150","status":"Yet to be delivered","deleted":"0",
+   "itemDetails":[{"id":"1","order_id":"1","item_id":"2","quantity":"2","price":"90"},{"id":"2","order_id":"1","item_id":"3","quantity":"3","price":"60"}],
+   "userDetails":[{"id":"2","role":"Customer","name":"Customer 1","username":"user1","password":
+   "pass1","email":"mail2@example.com","address":"Address 2","contact":"9898000001",
+   "verified":"1","deleted":"0"}]} -->
+
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">All Orders</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <p class="caption">List of orders by customers with details</p>
+  <div class="divider"></div>
+  <!--editableTable-->
+  <div id="work-collections" class="seaction">
+<app-adminallorders [orders_var]="orders"></app-adminallorders>
+    
+  </div>
+</div>
+
+
+
+
+
+
+<p>Here......</p>
